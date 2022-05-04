@@ -6,10 +6,12 @@ class MultiToDo extends ToDo {
     }
 
     getHighestPriority(){
-        for (let i = 0; i < this.subToDos.priority.length; i++) {
-            if (i) {
-                
-            }
+        if (this.priority === 3) {
+            return 3;
+        } 
+
+        if (this.priority ) {
+            
         }
     }
 }
