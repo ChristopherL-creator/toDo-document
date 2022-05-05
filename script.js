@@ -17,11 +17,33 @@ console.log(paperina.toString());
 const topolino = new DeadLineToDo('compra pane', null, ToDo.PRIORITY.Medium, ['casa']);
 console.log(topolino.toString()); 
 
-const toDoList = [todo1, todo2, paperino, paperina]; 
+const toDoList = [todo1, todo2, paperino, paperina];  
 
-function displayToDo() {
-    
+function displayToDo(arrayTask) {
+    const container = document.getElementById('todo-container'); 
+    for (const i of arrayTask) {
+        const divGenerale = document.createElement('div'); 
+        divGenerale.className = "task-div";  
+        const divGriglia = document.createElement('div'); 
+        divGriglia.className = "task-griglia"; 
+        const titolo = document.createElement('div'); 
+        titolo.className = "titolo";  
+        const divFlex = document.createElement('div'); 
+        divFlex.className = "task-flex"; 
+        for (const j of arrayTask.tags) {
+            const divTag = document.createElement('div'); 
+            const tagText = document.createTextNode(j); 
+            divTag.appendChild(tagText)
+            divFlex.appendChild(divTag);
+        }
+        container.appendChild(divGenerale);
+    }
 } 
+
+displayToDo(toDoList);
+
+
+
 
 // const doneList = [];
 

@@ -4,4 +4,16 @@ html, body{
     margin: 0px; 
     padding: 0px; 
     background-color: grey;
+} 
+
+.div-container{ 
+    margin: auto;
+    width: fit-content;
+}
+
+.taskDiv{ 
+    margin-bottom: 2px;
+    height: 100px; 
+    width: 100px;
+    background-color: red;
 }
