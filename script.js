@@ -1,31 +1,30 @@
 const todo1 = new ToDo('Uscire', ToDo.PRIORITY.Medium, ['divertimento']) 
-//  pre modificare proprietà;
 todo1.creationDate = new Date(2022, 6, 22);
-
 console.log(todo1.toString());  
 
 const todo2 = new ToDo('heheh') 
-//  pre modificare proprietà;
-todo1.creationDate = new Date(2022, 6, 22);
-
+//  per modificare proprietà;
+todo2.creationDate = new Date(2022, 6, 22);
 console.log(todo2.toString()); 
 
 const paperino = new DeadLineToDo('manda mail', new Date(2022, 4, 7), ToDo.PRIORITY.High, ['hehe', ' hohoh']); 
-
 console.log(paperino.toString()); 
 
-const paperina = new DeadLineToDo('manda mememel'); 
+const paperina = new DeadLineToDo('manda mememel', new Date(2022, 6, 9), ToDo.PRIORITY.Max, ['uh uh']); 
+console.log(paperina.toString()); 
 
-console.log(paperina.toString());
+//  metto null perché va rispettato ordine di proprietà; attingerà a valore default;
+const topolino = new DeadLineToDo('compra pane', null, ToDo.PRIORITY.Medium, ['casa']);
+console.log(topolino.toString()); 
 
+const toDoList = [todo1, todo2, paperino, paperina]; 
 
-// console.log(ToDo.fromPriorityToString(3)); 
+function displayToDo() {
+    
+} 
 
+// const doneList = [];
 
-// const todo2 = new ToDo('Pane', ToDo.PRIORITY.Medium, ['casa'])
-// const todo3 = new ToDo('Latte', ToDo.PRIORITY.Low, ['casa'])
-// const todo4 = new ToDo('caffè', ToDo.PRIORITY.Max, ['casa'])
-
-// const multi = new MultiToDo('Spesa', ToDo.PRIORITY.Medium, ['casa'], [todo2, todo3, todo4]);
-
-// console.log(multi);
+//  uno degli styles dipende dalla priority (bg-color, in base a priority); 
+//  cercare come dare istruzioni stile a file js. 
+//  aggiungo style.bgcolor inline a html;

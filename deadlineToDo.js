@@ -11,6 +11,30 @@ class DeadLineToDo extends ToDo{
             this._deadLine = deadLine.getTime();
         }
     } 
+
+    get priority(){ 
+        
+        const nowTimeStamp = new Date().getTime(); 
+        const deltaTime = this._deadLine - nowTimeStamp; 
+        const day = 1000 * 60 * 60 * 24; 
+        
+        let deadLinePriority;
+        if (deltaTime <= day) {
+            deadLinePriority = ToDo.PRIORITY.Max;
+        } else if(deltaTime <= 2 * day){
+            deadLinePriority = ToDo.PRIORITY.High; 
+        } else if(deltaTime <= 3 * day){
+            deadLinePriority = ToDo.PRIORITY.Medium; 
+        } else {
+            deadLinePriority = ToDo.PRIORITY.Low; 
+        } 
+
+        if (this._priority > deadLinePriority.order) {
+            return this._priority;
+        } else {
+            return deadLinePriority;
+        }
+    }
     
     set deadLine(newDate){ 
         const timeStamp = newDate.getTime(); 

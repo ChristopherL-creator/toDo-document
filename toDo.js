@@ -5,19 +5,27 @@ class ToDo{
         Low: {order: 0, name: 'bassa', color: 'green'},
         Medium: {order: 1, name: 'media', color: 'yellow'},
         High: {order: 2, name: 'alta', color: 'orange'},
-        Max: {order: 3, name: 'molto alta', color: 'red'},
+        Max: {order: 3, name: 'molto alta', color: 'red'}, 
+        // expired: {order: -1, name: 'scaduta', color: 'grey'}
     }  
 
 //  tags non sono obbligatori, quindi li metto in array vuoto;
     constructor(name, priority = ToDo.PRIORITY.Low, tags = []){
         this.name = name;
-        this.priority = priority;
+        this._priority = priority;
         this.tags = tags; 
         this._creationDate = new Date().getTime(); 
 //  new Date() rende data in cui è stata fatta operazione; getTime() trasforma new Date in millisecondi; 
 //  "_" prima di proprietà indica agli altri di non toccarla/renderla disponibile a tutti;
     } 
 
+    set priority(newPriority){ 
+this._priority = newPriority;
+    }
+
+    get priority(){ 
+        return this._priority;
+    }
 //  trasforma da numerone in millisecondi in formato mm/gg/yyyy
     get creationDate(){ 
         const date = new Date(this._creationDate); 
@@ -34,7 +42,7 @@ class ToDo{
 
     toString(){ 
         const toDoString = 'ToDo: ' + this.name + '\n' +
-                           'prority: ' + this.priority.name + '\n' +
+                           'priority: ' + this.priority.name + '\n' +
                            'tags: ' + this.tags + '\n' + 
                            'Data di creazione: ' + this.creationDate; 
         return  toDoString;
