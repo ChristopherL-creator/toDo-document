@@ -1,4 +1,4 @@
-class MultiToDo extends ToDo {
+class MultiToDo extends ToDo{
 
     constructor(name, priority, tags = [] , subToDos = []){ 
         super(name, priority, tags); 

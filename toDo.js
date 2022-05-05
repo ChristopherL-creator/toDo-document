@@ -1,28 +1,45 @@
-class ToDo{
+class ToDo{ 
 
-    constructor(name, priority = PRIORITY.Low, tags = []){
+//
+    static PRIORITY = {
+        Low: {order: 0, name: 'bassa', color: 'green'},
+        Medium: {order: 1, name: 'media', color: 'yellow'},
+        High: {order: 2, name: 'alta', color: 'orange'},
+        Max: {order: 3, name: 'molto alta', color: 'red'},
+    }  
+
+//  tags non sono obbligatori, quindi li metto in array vuoto;
+    constructor(name, priority = ToDo.PRIORITY.Low, tags = []){
         this.name = name;
         this.priority = priority;
-        this._creationDate = new Date().getTime();
-        this.tags = tags;
-    }
-
-    static PRIORITY = {
-        Low: 0,
-        Medium: 1,
-        High: 2,
-        Max: 3,
+        this.tags = tags; 
+        this._creationDate = new Date().getTime(); 
+//  new Date() rende data in cui è stata fatta operazione; getTime() trasforma new Date in millisecondi; 
+//  "_" prima di proprietà indica agli altri di non toccarla/renderla disponibile a tutti;
     } 
 
-    get creationDate(){
-        return new Date(this._creationDate)
+//  trasforma da numerone in millisecondi in formato mm/gg/yyyy
+    get creationDate(){ 
+        const date = new Date(this._creationDate); 
+        return date;
+    } 
+
+//  per modificare _creationDate, così sono sicuro che ci sia numerone millisecondi, che può essere lavorato; 
+//  ricreo proprietà con "_" in maniera che possa lavorarla in maniera sicura; 
+//  il "date" che lavoro in "set" è lo stesso dal "return" di "get"; ma lo lavoro in proprietà sicura;
+    set creationDate(newDate){ 
+        const timeStamp = newDate.getTime(); 
+        this._creationDate = timeStamp;
     }
-    
-    toString(){
-        return 'name: ' + this.name + '\n' +
-               'prority: ' + this.priority + '\n' +
-               'creationDate: ' + this.creationDate + '\n' +
-               'tags: ' + this.tags + '\n';
-    }
+
+    toString(){ 
+        const toDoString = 'ToDo: ' + this.name + '\n' +
+                           'prority: ' + this.priority.name + '\n' +
+                           'tags: ' + this.tags + '\n' + 
+                           'Data di creazione: ' + this.creationDate; 
+        return  toDoString;
+    } 
+//  quando funzione è statica, può essere richiamata senza chiamare oggetto; funziona anche senza oggetto; 
+
 
 }
