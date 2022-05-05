@@ -11,9 +11,10 @@ html, body{
     width: fit-content;
 }
 
-.taskDiv{ 
+.task-div{ 
     margin-bottom: 2px;
     height: 100px; 
     width: 100px;
-    background-color: red;
-}
+    background-color: rgb(177, 0, 0);
+} 
+

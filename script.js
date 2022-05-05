@@ -21,20 +21,22 @@ const toDoList = [todo1, todo2, paperino, paperina];
 
 function displayToDo(arrayTask) {
     const container = document.getElementById('todo-container'); 
-    for (const i of arrayTask) {
+    for (let i = 0; i < arrayTask.length; i++) {
+        const task = arrayTask[i];
         const divGenerale = document.createElement('div'); 
         divGenerale.className = "task-div";  
         const divGriglia = document.createElement('div'); 
         divGriglia.className = "task-griglia"; 
         const titoloContainer = document.createElement('div'); 
         titoloContainer.className = "titolo-container";   
-        const titolo = document.createTextNode(arrayTask.name); 
+        const titolo = document.createTextNode(task.name); 
         titoloContainer.appendChild(titolo);
         const divFlex = document.createElement('div'); 
         divFlex.className = "task-flex"; 
-        for (const j of arrayTask.tags) {
+        for (let i = 0; i < arrayTask.length; i++) {
+            const tags = arrayTask[i];
             const divTag = document.createElement('div'); 
-            const tagText = document.createTextNode(j); 
+            const tagText = document.createTextNode(tags.tags); 
             divTag.appendChild(tagText)
             divFlex.appendChild(divTag);
         } 
