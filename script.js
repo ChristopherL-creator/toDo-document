@@ -26,8 +26,10 @@ function displayToDo(arrayTask) {
         divGenerale.className = "task-div";  
         const divGriglia = document.createElement('div'); 
         divGriglia.className = "task-griglia"; 
-        const titolo = document.createElement('div'); 
-        titolo.className = "titolo";  
+        const titoloContainer = document.createElement('div'); 
+        titoloContainer.className = "titolo-container";   
+        const titolo = document.createTextNode(arrayTask.name); 
+        titoloContainer.appendChild(titolo);
         const divFlex = document.createElement('div'); 
         divFlex.className = "task-flex"; 
         for (const j of arrayTask.tags) {
@@ -35,7 +37,22 @@ function displayToDo(arrayTask) {
             const tagText = document.createTextNode(j); 
             divTag.appendChild(tagText)
             divFlex.appendChild(divTag);
-        }
+        } 
+        const divButtonContainer = document.createElement('div'); 
+        divButtonContainer.className = "button-container";
+        const divButton = document.createElement('div'); 
+        divButton.className = "button"; 
+        divButtonContainer.appendChild(divButton);
+        const divCreationDate = document.createElement('div'); 
+        divCreationDate.className = "creation-date"; 
+        const divDeadLine = document.createElement('div'); 
+        divDeadLine.className = "deadline-date"; 
+        divGriglia.appendChild(titoloContainer); 
+        divGriglia.appendChild(divFlex); 
+        divGriglia.appendChild(divButtonContainer); 
+        divGriglia.appendChild(divCreationDate); 
+        divGriglia.appendChild(divDeadLine); 
+        divGenerale.appendChild(divGriglia); 
         container.appendChild(divGenerale);
     }
 } 
