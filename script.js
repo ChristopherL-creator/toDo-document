@@ -36,8 +36,9 @@ function displayToDo(arrayTask) {
         for (let i = 0; i < arrayTask.length; i++) {
             const tags = arrayTask[i];
             const divTag = document.createElement('div'); 
+            divTag.className = 'tags-items';
             const tagText = document.createTextNode(tags.tags); 
-            divTag.appendChild(tagText)
+            divTag.appendChild(tagText);
             divFlex.appendChild(divTag);
         } 
         const divButtonContainer = document.createElement('div'); 

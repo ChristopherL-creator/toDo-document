@@ -8,7 +8,8 @@ html, body{
 
 .div-container{ 
     margin: auto;
-    width: fit-content;
+    width: fit-content; 
+    height: fit-content;
 }
 
 .task-div{ 
@@ -18,3 +19,41 @@ html, body{
     background-color: rgb(177, 0, 0);
 } 
 
+.task-griglia{ 
+    display: grid;
+    grid-template-columns: repeat(2fr, 1fr);
+    grid-template-rows: repeat(1fr, 2fr, 1fr); 
+    grid-template-areas: 'title title' 
+                         'taskflex button' 
+                         'creazione scadenza';
+} 
+
+.titolo-container{ 
+    grid-area: title; 
+    background-color: blue;
+} 
+
+.task-flex{ 
+    grid-area: taskflex; 
+    display: flex; 
+    background-color: yellowgreen;
+}  
+
+.tags-items{ 
+    background-color: aqua;
+} 
+
+.button-container{ 
+    grid-area: button; 
+    background-color: rgb(59, 0, 0); 
+
+}
+
+.button{ 
+    background-color: blueviolet;
+} 
+
+.creation-date{ 
+    grid-area: creazione; 
+    background-color: green;
+}
