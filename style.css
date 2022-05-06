@@ -56,4 +56,9 @@ html, body{
 .creation-date{ 
     grid-area: creazione; 
     background-color: green;
+} 
+
+.deadline-date{ 
+    grid-area: scadenza; 
+    background-color: coral;
 }
