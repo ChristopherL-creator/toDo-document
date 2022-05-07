@@ -54,12 +54,12 @@ html, body{
     background-color: blueviolet;
 } 
 
-.creation-date{ 
+.creation-container{ 
     grid-area: creazione; 
     background-color: green;
 } 
 
-.deadline-date{ 
+.deadline-container{ 
     grid-area: scadenza; 
     background-color: coral;
 }
