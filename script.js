@@ -14,8 +14,8 @@ const paperina = new DeadLineToDo('manda mememel', new Date(2022, 6, 9), ToDo.PR
 console.log(paperina.toString()); 
 
 //  metto null perché va rispettato ordine di proprietà; attingerà a valore default;
-const topolino = new DeadLineToDo('compra pane', null, ToDo.PRIORITY.Medium, ['tag5']);
-console.log(topolino.toString()); 
+// const topolino = new DeadLineToDo('compra pane', null, ToDo.PRIORITY.Medium, ['tag5']);
+// console.log(topolino.toString()); 
 
 const toDoList = [todo1, todo2, paperino, paperina];  
 
@@ -43,9 +43,9 @@ function displayToDo(arrayTask) {
         } 
         const divButtonContainer = document.createElement('div'); 
         divButtonContainer.className = "button-container";
-        const divButton = document.createElement('div'); 
-        divButton.className = "button"; 
-        divButtonContainer.appendChild(divButton);
+        const button = document.createElement("INPUT");
+        button.setAttribute("type", "checkbox"); 
+        divButtonContainer.appendChild(button);
         const divCreationDate = document.createElement('div'); 
         divCreationDate.className = "creation-date"; 
         const divDeadLine = document.createElement('div'); 
