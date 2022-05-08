@@ -51,10 +51,6 @@ html, body{
 
 }
 
-input{ 
-    
-}
-
 .creation-container{ 
     grid-area: creazione; 
     background-color: green;

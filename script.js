@@ -19,6 +19,8 @@ console.log(paperina.toString());
 
 const toDoList = [todo1, todo2, paperino, paperina];  
 
+
+
 function displayToDo(arrayTask) {
     const container = document.getElementById('todo-container'); 
     for (let i = 0; i < arrayTask.length; i++) {
@@ -45,7 +47,6 @@ function displayToDo(arrayTask) {
         divButtonContainer.className = "button-container";
         const button = document.createElement("INPUT");
         button.setAttribute("type", "checkbox"); 
-        button.className = 'button';
         divButtonContainer.appendChild(button);
         const divCreationDate = document.createElement('div'); 
         divCreationDate.className = 'creation-container';
@@ -65,10 +66,16 @@ function displayToDo(arrayTask) {
     }
 } 
 
-displayToDo(toDoList);
 
+displayToDo(toDoList); 
 
-
+function changeColor(divGenerale, button) {
+    if (button.checked) {
+      document.divGenerale.style.backgroundColor = '#0000FF';
+    } else  {
+      document.divGenerale.style.backgroundColor = '#FF0000';
+    }
+  }
 
 // const doneList = [];
 
