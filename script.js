@@ -45,7 +45,8 @@ function displayToDo(arrayTask) {
         divButtonContainer.className = "button-container";
         const button = document.createElement("INPUT");
         button.setAttribute("type", "checkbox"); 
-        divButtonContainer.appendChild(button)
+        button.className = 'button';
+        divButtonContainer.appendChild(button);
         const divCreationDate = document.createElement('div'); 
         divCreationDate.className = 'creation-container';
         const cDate = document.createTextNode(task.creationDate); 
