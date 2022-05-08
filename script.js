@@ -47,11 +47,12 @@ function displayToDo(arrayTask) {
         button.setAttribute("type", "checkbox"); 
         divButtonContainer.appendChild(button)
         const divCreationDate = document.createElement('div'); 
-        divCreationDate.className = "creation-container"; 
-        const cDate = document.createElement('INPUT'); 
-        cDate.setAttribute('type', 'Date'); 
+        divCreationDate.className = 'creation-container';
+        const cDate = document.createTextNode(task.creationDate); 
         divCreationDate.appendChild(cDate);
         const divDeadLine = document.createElement('div'); 
+        const dDate = document.createTextNode(task.deadLine); 
+        divDeadLine.appendChild(dDate);
         divDeadLine.className = "deadline-container"; 
         divGriglia.appendChild(titoloContainer); 
         divGriglia.appendChild(divFlex); 

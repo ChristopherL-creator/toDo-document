@@ -9,13 +9,13 @@ html, body{
 .div-container{ 
     margin: auto;
     width: fit-content; 
-    height: fit-content;
+
 }
 
 .task-div{ 
     margin-bottom: 2px;
     height: 100px; 
-    width: 100px;
+    width: fit-content; 
     background-color: rgb(177, 0, 0);
 } 
 
