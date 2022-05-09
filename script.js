@@ -21,12 +21,12 @@ const toDoList = [todo1, todo2, paperino, paperina];
 
 
 
-function displayToDo(arrayTask) {
+function displayToDo() {
     const container = document.getElementById('todo-container'); 
-    for (let i = 0; i < arrayTask.length; i++) {
-        const task = arrayTask[i];
+    for (let i = 0; i < toDoList.length; i++) {
+        const task = toDoList[i];
         const divGenerale = document.createElement('div'); 
-        divGenerale.className = "task-div";  
+        divGenerale.classList.add('task-div'); //  (metodo più moderno);          
         const divGriglia = document.createElement('div'); 
         divGriglia.className = "task-griglia"; 
         const titoloContainer = document.createElement('div'); 
@@ -35,32 +35,34 @@ function displayToDo(arrayTask) {
         titoloContainer.appendChild(titolo);
         const divFlex = document.createElement('div'); 
         divFlex.className = "task-flex"; 
-        for (let j = 0; j < arrayTask.length; j++) {
-            const tags = arrayTask[j];
+        for (const tag of task.tags) {
             const divTag = document.createElement('div'); 
             divTag.className = 'tags-items';
-            const tagText = document.createTextNode(j); 
+            const tagText = document.createTextNode(tag); 
             divTag.appendChild(tagText);
             divFlex.appendChild(divTag);
         } 
         const divButtonContainer = document.createElement('div'); 
         divButtonContainer.className = "button-container";
-        const button = document.createElement("INPUT");
+        const button = document.createElement("INPUT"); 
+        button.classList.add('button');
         button.setAttribute("type", "checkbox"); 
         divButtonContainer.appendChild(button);
         const divCreationDate = document.createElement('div'); 
         divCreationDate.className = 'creation-container';
-        const cDate = document.createTextNode(task.creationDate); 
-        divCreationDate.appendChild(cDate);
-        const divDeadLine = document.createElement('div'); 
-        const dDate = document.createTextNode(task.deadLine); 
-        divDeadLine.appendChild(dDate);
-        divDeadLine.className = "deadline-container"; 
+        const cDate = document.createTextNode(task.creationDate.toISOString()); 
+        divCreationDate.appendChild(cDate); 
+        if (task.deadLine) {
+               const divDeadLine = document.createElement('div'); 
+               const dDate = document.createTextNode(task.deadLine.toISOString()); 
+               divDeadLine.className = "deadline-container"; 
+               divDeadLine.appendChild(dDate);  
+               divGriglia.appendChild(divDeadLine); 
+        }
         divGriglia.appendChild(titoloContainer); 
         divGriglia.appendChild(divFlex); 
         divGriglia.appendChild(divButtonContainer); 
         divGriglia.appendChild(divCreationDate); 
-        divGriglia.appendChild(divDeadLine); 
         divGenerale.appendChild(divGriglia); 
         container.appendChild(divGenerale);
     }
@@ -69,13 +71,13 @@ function displayToDo(arrayTask) {
 
 displayToDo(toDoList); 
 
-function changeColor(divGenerale, button) {
-    if (button.checked) {
-      document.divGenerale.style.backgroundColor = '#0000FF';
-    } else  {
-      document.divGenerale.style.backgroundColor = '#FF0000';
-    }
-  }
+// function changeColor(divGenerale, button) {
+    // if (task.button.checked) {
+    //   task.divGenerale.style.backgroundColor = '#00FF00';
+    // } else {
+    //   task.divGenerale.style.backgroundColor = '#FF0000';
+    // }
+//   }
 
 // const doneList = [];
 

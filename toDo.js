@@ -49,5 +49,9 @@ this._priority = newPriority;
     } 
 //  quando funzione è statica, può essere richiamata senza chiamare oggetto; funziona anche senza oggetto; 
 
-
+// static getFormattedDate(date){
+//     const dateString = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(); 
+//     return dateString;
+// } 
+//  funzione per formattare data;
 }
