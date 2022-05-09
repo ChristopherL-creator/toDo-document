@@ -6,7 +6,7 @@ html, body{
     background-color: grey;
 } 
 
-.todo-list-container{ 
+.div-container{ 
     margin: auto;
     width: fit-content; 
 
@@ -32,9 +32,9 @@ html, body{
     grid-template-rows: repeat(1fr, 2fr, 1fr); 
     grid-template-areas: 'title title' 
                          'taskflex button' 
-                         'creazione scadenza'; 
+                         'creazione creazione'; 
     row-gap: 2px; 
-    column-gap: 10px;
+    column-gap: 10px; 
 } 
 
 .titolo-container{ 
@@ -62,31 +62,30 @@ html, body{
 
 } 
 
-.button-container{ 
-    display: flex;
+/* .button-container{ 
     grid-area: button; 
-    /* background-color: rgb(59, 0, 0);  */
+    background-color: rgb(59, 0, 0); 
     height: 40px; 
     min-height: 25px;
     width: 180px;
-} 
+}  */
 
 .button{ 
-    justify-self: center; 
+    grid-area: button;
     height: 90%; 
     width: 90%; 
+    justify-self: end; 
+    margin: 0px 2px;
 }
 
 .creation-container{ 
     grid-area: creazione; 
     /* background-color: green;  */
-    max-width: 180px;
     /* margin: 2px; */
+    display: flex; 
+    justify-content: space-between;
 } 
 
-.deadline-container{ 
-    grid-area: scadenza; 
-    /* background-color: coral;  */
-    max-width: 180px;
-    /* margin: 2px; */
+.dates{ 
+    margin: 0px 20px;
 }

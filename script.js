@@ -22,18 +22,19 @@ const toDoList = [todo1, todo2, paperino, paperina];
 function displayToDoWithTemplate() {
     const template = ` 
     <div class="todo-container"> 
-            <div class="task-div"> 
-                <div class="task-griglia"> 
-                    <span>#TODONAME</span> 
-                    <div class="task-flex"> 
-                    </div>
+        <div class="task-div"> 
+            <div class="task-griglia"> 
+                <span class = 'titolo-container'>#TODONAME</span> 
+                <div class="task-flex"> 
+
                 </div> 
                 <button class="button">COMPLETATO</button>   
                 <div id='date-container' class="creation-container"> 
-                <span class="creation-container">#CREATIONDATE</span>
-            </div>
+                    <span class="dates">#CREATIONDATE</span>
+                </div>
             </div> 
-         
+  
+            </div> 
         </div>
     </div> 
 
@@ -61,7 +62,8 @@ function displayToDoWithTemplate() {
         if (todo.deadLine) {
             // const dateContainer = document.getElementsByClassName('creation-container')[0]; 
             const dateContainer = div.querySelector('.creation-container');
-            const dateSpan = document.createElement('span'); 
+            const dateSpan = document.createElement('div'); 
+            dateSpan.classList.add('dates')
             const dateNode = document.createTextNode(todo.deadLine.toISOString()); 
             dateSpan.appendChild(dateNode); 
             dateContainer.appendChild(dateSpan);
