@@ -21,7 +21,8 @@ html, body{
     border-width: 2px; 
     min-width: 370px; 
     border-left-color: rgba(255, 255, 255, 0.493); 
-    border-top-color: rgba(255, 255, 255, 0.886);
+    border-top-color: rgba(255, 255, 255, 0.886); 
+    border-radius: 20px;
 
 } 
 
