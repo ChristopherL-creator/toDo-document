@@ -19,65 +19,66 @@ console.log(paperina.toString());
 
 const toDoList = [todo1, todo2, paperino, paperina];  
 
+function displayToDoWithTemplate() {
+    const template = ` 
+    <div class="todo-container"> 
+            <div class="task-div"> 
+                <div class="task-griglia"> 
+                    <span>#TODONAME</span> 
+                    <div class="task-flex"> 
+                    </div>
+                </div> 
+                <button class="button">COMPLETATO</button>   
+                <div id='date-container' class="creation-container"> 
+                <span class="creation-container">#CREATIONDATE</span>
+            </div>
+            </div> 
+         
+        </div>
+    </div> 
 
+    <div id="done-container"> 
 
-function displayToDo() {
-    const container = document.getElementById('todo-container'); 
+    </div>
+    ` 
+    const toDoListContainer = document.getElementById('todo-list-container'); 
+
     for (let i = 0; i < toDoList.length; i++) {
-        const task = toDoList[i];
-        const divGenerale = document.createElement('div'); 
-        divGenerale.classList.add('task-div'); //  (metodo più moderno);          
-        const divGriglia = document.createElement('div'); 
-        divGriglia.className = "task-griglia"; 
-        const titoloContainer = document.createElement('div'); 
-        titoloContainer.className = "titolo-container";   
-        const titolo = document.createTextNode(task.name); 
-        titoloContainer.appendChild(titolo);
-        const divFlex = document.createElement('div'); 
-        divFlex.className = "task-flex"; 
-        for (const tag of task.tags) {
-            const divTag = document.createElement('div'); 
-            divTag.className = 'tags-items';
-            const tagText = document.createTextNode(tag); 
-            divTag.appendChild(tagText);
-            divFlex.appendChild(divTag);
+        const todo = toDoList[i]; 
+        const div = document.createElement('div'); 
+        
+        const toDoTemplate = template.replace('#TODONAME', todo.name) 
+                                     .replace('#CREATIONDATE', todo.creationDate.toISOString()); 
+                
+        div.innerHTML = toDoTemplate; 
+        toDoListContainer.appendChild(div); 
+//  aggiungo elementi unici;  
+
+//      per cambiare colore in base a priorità
+        const toDoContainer = div.querySelector('.task-div'); 
+        toDoContainer.style.backgroundColor = todo.priority.color;
+
+        if (todo.deadLine) {
+            // const dateContainer = document.getElementsByClassName('creation-container')[0]; 
+            const dateContainer = div.querySelector('.creation-container');
+            const dateSpan = document.createElement('span'); 
+            const dateNode = document.createTextNode(todo.deadLine.toISOString()); 
+            dateSpan.appendChild(dateNode); 
+            dateContainer.appendChild(dateSpan);
         } 
-        const divButtonContainer = document.createElement('div'); 
-        divButtonContainer.className = "button-container";
-        const button = document.createElement("INPUT"); 
-        button.classList.add('button');
-        button.setAttribute("type", "checkbox"); 
-        divButtonContainer.appendChild(button);
-        const divCreationDate = document.createElement('div'); 
-        divCreationDate.className = 'creation-container';
-        const cDate = document.createTextNode(task.creationDate.toISOString()); 
-        divCreationDate.appendChild(cDate); 
-        if (task.deadLine) {
-               const divDeadLine = document.createElement('div'); 
-               const dDate = document.createTextNode(task.deadLine.toISOString()); 
-               divDeadLine.className = "deadline-container"; 
-               divDeadLine.appendChild(dDate);  
-               divGriglia.appendChild(divDeadLine); 
+
+        const tagContainer = div.querySelector('.task-flex');
+        for (const tag of todo.tags) {
+            const tagSpan = document.createElement('span'); 
+            const node = document.createTextNode(tag); 
+            tagSpan.classList.add('tags-items')
+            tagSpan.appendChild(node); 
+            tagContainer.appendChild(tagSpan);
         }
-        divGriglia.appendChild(titoloContainer); 
-        divGriglia.appendChild(divFlex); 
-        divGriglia.appendChild(divButtonContainer); 
-        divGriglia.appendChild(divCreationDate); 
-        divGenerale.appendChild(divGriglia); 
-        container.appendChild(divGenerale);
     }
 } 
 
-
-displayToDo(toDoList); 
-
-// function changeColor(divGenerale, button) {
-    // if (task.button.checked) {
-    //   task.divGenerale.style.backgroundColor = '#00FF00';
-    // } else {
-    //   task.divGenerale.style.backgroundColor = '#FF0000';
-    // }
-//   }
+displayToDoWithTemplate();
 
 // const doneList = [];
 

@@ -6,7 +6,7 @@ html, body{
     background-color: grey;
 } 
 
-.div-container{ 
+.todo-list-container{ 
     margin: auto;
     width: fit-content; 
 
